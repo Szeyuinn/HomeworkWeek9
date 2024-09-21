@@ -1,0 +1,36 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Choropleth Map of Malaysia's Forest Reserves by State (2021)",
+    "width": 800,
+    "height": 400,
+    "projection": {"type": "equalEarth"},
+    "data": {
+      "url": "https://github.com/Szeyuinn/HomeworkWeek9/blob/main/js/ne_10m_admin_1_states_provinces.topojson",
+      "format": {"type": "topojson", "feature": "js/ne_10m_admin_1_states_provinces.topojson"}
+    },
+    "transform": [
+      {
+        "lookup": "properties.name",
+        "from": {
+          "data": {
+            "url": "https://github.com/Szeyuinn/HomeworkWeek9/blob/main/data/forest_reserve_state.csv",
+            "format": {"type": "csv"}
+          },
+          "key": "state",
+          "fields": ["area"]
+        }
+      }
+    ],
+    "mark": {"type": "geoshape"},
+    "encoding": {
+      "color": {
+        "field": "area",
+        "type": "quantitative",
+        "scale": {"scheme": "redyellowgreen-5"}
+      },
+      "tooltip": [
+        {"field": "properties.name", "type": "nominal", "title": "State"},
+        {"field": "area", "type": "quantitative", "title": "Forest Area (hectares)"}
+      ]
+    }
+  }

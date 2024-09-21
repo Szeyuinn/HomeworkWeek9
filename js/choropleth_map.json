@@ -5,7 +5,7 @@
     "height": 400,
     "projection": {"type": "equalEarth"},
     "data": {
-      "url": "https://github.com/Szeyuinn/HomeworkWeek9/blob/main/js/ne_10m_admin_1_states_provinces.topojson",
+      "url": "https://raw.githubusercontent.com/Szeyuinn/HomeworkWeek9/main/js/ne_10m_admin_1_states_provinces.topojson",
       "format": {"type": "topojson", "feature": "ne_10m_admin_1_states_provinces"}
     },
     "transform": [
@@ -13,7 +13,7 @@
         "lookup": "properties.name",
         "from": {
           "data": {
-            "url": "https://github.com/Szeyuinn/HomeworkWeek9/blob/main/data/forest_reserve_state_2021_cleaned.csv",
+            "url": "https://raw.githubusercontent.com/Szeyuinn/HomeworkWeek9/main/data/forest_reserve_state_2021_cleaned.csv",
             "format": {"type": "csv"}
           },
           "key": "state",

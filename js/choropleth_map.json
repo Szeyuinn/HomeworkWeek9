@@ -26,7 +26,7 @@
       "color": {
         "field": "area",
         "type": "quantitative",
-        "scale": {"scheme": "redyellowgreen-5"}
+        "scale": {"type": "log"}
       },
       "tooltip": [
         {"field": "properties.name", "type": "nominal", "title": "State"},

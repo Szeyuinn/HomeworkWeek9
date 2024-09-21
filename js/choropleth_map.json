@@ -26,7 +26,8 @@
       "color": {
         "field": "area",
         "type": "quantitative",
-        "scale": {"scheme": "greens"}
+        "scale": {"scheme": "greens"},
+        "title": "Forest Area (hectares)"
       },
       "tooltip": [
         {"field": "properties.name", "type": "nominal", "title": "State"},

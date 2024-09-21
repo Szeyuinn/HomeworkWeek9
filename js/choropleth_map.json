@@ -24,7 +24,7 @@
     "mark": {"type": "geoshape"},
     "encoding": {
       "color": {
-        "field": "area",
+        "field": "properties.name",
         "type": "quantitative",
         "scale": {"scheme": "greens"},
         "title": "Forest Area (hectares)"

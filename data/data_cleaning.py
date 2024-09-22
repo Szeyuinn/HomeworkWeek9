@@ -5,7 +5,7 @@ file_path = '/Users/szeyuin/Documents/FIT3179/HomeworkWeek9/data/forest_reserve_
 forest_data = pd.read_csv(file_path)
 
 # Filter for the latest year (2021)
-latest_year_data = forest_data[forest_data['year'] == 2021]
+latest_year_data = forest_data[forest_data['date'] == "2021-01-01"]
 
 # Clean the dataset further if necessary (e.g., drop NaNs)
 latest_year_data_cleaned = latest_year_data.dropna(subset=['area'])

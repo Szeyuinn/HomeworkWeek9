@@ -1,0 +1,36 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Rate of decrease in forest reserves by state in Malaysia over time.",
+    "width": 800,
+    "height": 400,
+    "data": {
+      "url": "forest_reserve_with_rate.csv"
+    },
+    "mark": {
+      "type": "line",
+      "point": true
+    },
+    "encoding": {
+      "x": {
+        "field": "date",
+        "type": "temporal",
+        "title": "Year"
+      },
+      "y": {
+        "field": "rate_of_decrease",
+        "type": "quantitative",
+        "title": "Rate of Decrease (%)"
+      },
+      "color": {
+        "field": "state",
+        "type": "nominal",
+        "title": "State"
+      },
+      "tooltip": [
+        {"field": "state", "type": "nominal", "title": "State"},
+        {"field": "date", "type": "temporal", "title": "Year"},
+        {"field": "rate_of_decrease", "type": "quantitative", "title": "Rate of Decrease (%)"}
+      ]
+    }
+  }
+  

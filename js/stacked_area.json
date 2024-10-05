@@ -40,8 +40,8 @@
           },
           "tooltip": [
             {"field": "state", "type": "nominal", "title": "State"},
-            {"field": "year", "type": "temporal", "title": "Year"},
-            {"field": "area_hectares", "type": "quantitative", "title": "Forest Area (Hectares)"}
+            {"field": "date", "type": "temporal", "title": "Year"},
+            {"field": "area", "type": "quantitative", "title": "Forest Area (Hectares)"}
           ]
         }
       },
@@ -57,10 +57,10 @@
           "x": {"field": "year", "type": "temporal"},
           "y": {
             "aggregate": "sum",
-            "field": "area_hectares",
+            "field": "area",
             "type": "quantitative"
           },
-          "text": {"field": "area_hectares", "type": "quantitative", "format": ".1f"},
+          "text": {"field": "area", "type": "quantitative", "format": ".1f"},
           "color": {"value": "black"}
         }
       }

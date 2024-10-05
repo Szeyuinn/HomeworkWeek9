@@ -13,7 +13,7 @@
         "lookup": "properties.name",
         "from": {
           "data": {
-            "url": "https://raw.githubusercontent.com/Szeyuinn/HomeworkWeek9/main/data/forest_reserve_state_2021_cleaned.csv",
+            "url": "https://raw.githubusercontent.com/Szeyuinn/HomeworkWeek9/refs/heads/main/data/forest_reserve_state_2021_cleaned.csv",
             "format": {"type": "csv"}
           },
           "key": "state",

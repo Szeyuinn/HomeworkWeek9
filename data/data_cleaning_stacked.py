@@ -8,6 +8,8 @@ forest_data = pd.read_csv(file_path)
 # latest_year_data = forest_data[forest_data['date'] == "2021-01-01"]
 latest_year_data = forest_data
 latest_year_data['date'] = latest_year_data['date'].apply(lambda x: x.split('-')[0])
+latest_year_data = latest_year_data[(latest_year_data['date'].astype(int) >= 2003) & 
+                                    (latest_year_data['date'].astype(int) <= 2021)]
 
 # Clean the dataset by removing "W.P." prefix from federal territories
 latest_year_data['state'] = latest_year_data['state'].replace({

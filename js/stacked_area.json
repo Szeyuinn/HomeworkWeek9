@@ -36,7 +36,7 @@
             }
         },
         "y": {
-            "field": "total_area",
+            "field": "area",
             "type": "quantitative",
             "title": "Forest Reserve Area (Hectares)"
         },

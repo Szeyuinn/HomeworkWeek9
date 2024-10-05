@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "description": "Stacked area chart of forest reserves by state in Malaysia over time with filtering, tooltips, and text annotations.",
+    "description": "Stacked area chart of forest reserves by state in Malaysia over time.",
     "width": 800,
     "height": 400,
     "data": {
@@ -8,7 +8,7 @@
     },
     "transform": [
       {
-        "filter": "datum.date >= 2003-01-01 && datum.year <= 2021-01-01"
+        "filter": "datum.date >= 2003-01-01 && datum.date <= 2021-01-01"
       }
     ],
     "layer": [

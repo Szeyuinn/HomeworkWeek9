@@ -15,15 +15,24 @@
 
 </head>
 <body>
-    <!-- <div id="choropleth_map"></div> -->
+    <!-- Choropleth Map Container -->
+    <div id="choropleth_map"></div>
+    
+    <!-- Stacked Area Chart Container -->
     <div id="stacked_area"></div>
+
     <script type="text/javascript">
     
-      // var spec2 = "js/choropleth_map.json";
-      var spec2 = "js/stacked_area.json";
-      vegaEmbed('#stacked_area', spec2).then(function(result) {
+      var spec1 = "js/choropleth_map.json";
+      vegaEmbed('#choropleth_map', spec1).then(function(result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
+
+      var spec2 = "js/stacked_area.json";
+      vegaEmbed('#stacked_area', spec2).then(function(result) {
+        // Access the Vega view instance for stacked area chart
+      }).catch(console.error);
+
     </script>
     
 </body>

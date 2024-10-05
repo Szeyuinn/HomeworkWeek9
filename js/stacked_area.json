@@ -4,7 +4,7 @@
     "width": 800,
     "height": 400,
     "data": {
-        "url": "https://raw.githubusercontent.com/Szeyuinn/HomeworkWeek9/refs/heads/main/data/forest_reserve_state_cleaned_stacked.csv"
+        "url": "https://raw.githubusercontent.com/Szeyuinn/HomeworkWeek9/refs/heads/main/data/forest_reserve_state_cleaned_stacked.csv" 
     },
     "transform": [
         {
@@ -36,7 +36,7 @@
             }
         },
         "y": {
-            "field": "area",
+            "field": "total_area",
             "type": "quantitative",
             "title": "Forest Reserve Area (Hectares)"
         },

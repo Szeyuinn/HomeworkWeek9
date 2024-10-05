@@ -1,0 +1,81 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Stacked area chart of forest reserves by state in Malaysia over time with filtering, tooltips, and text annotations.",
+    "width": 800,
+    "height": 400,
+    "data": {
+      "url": "https://raw.githubusercontent.com/Szeyuinn/HomeworkWeek9/main/data/forest_reserve_state.csv"
+    },
+    "transform": [
+      {
+        "filter": "datum.year >= 2003 && datum.year <= 2021"
+      }
+    ],
+    "layer": [
+      {
+        "mark": {
+          "type": "area",
+          "line": true,
+          "point": true,
+          "tooltip": true
+        },
+        "encoding": {
+          "x": {
+            "field": "date",
+            "type": "temporal",
+            "title": "Year",
+            "axis": {"grid": false}
+          },
+          "y": {
+            "aggregate": "sum",
+            "field": "area",
+            "type": "quantitative",
+            "title": "Forest Reserve Area (Hectares)"
+          },
+          "color": {
+            "field": "state",
+            "type": "nominal",
+            "title": "State",
+            "scale": {"scheme": "category20b"}
+          },
+          "tooltip": [
+            {"field": "state", "type": "nominal", "title": "State"},
+            {"field": "year", "type": "temporal", "title": "Year"},
+            {"field": "area_hectares", "type": "quantitative", "title": "Forest Area (Hectares)"}
+          ]
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "dx": 5,
+          "dy": -5,
+          "color": "black"
+        },
+        "encoding": {
+          "x": {"field": "year", "type": "temporal"},
+          "y": {
+            "aggregate": "sum",
+            "field": "area_hectares",
+            "type": "quantitative"
+          },
+          "text": {"field": "area_hectares", "type": "quantitative", "format": ".1f"},
+          "color": {"value": "black"}
+        }
+      }
+    ],
+    "selection": {
+      "state_filter": {
+        "type": "multi",
+        "fields": ["state"],
+        "bind": {"input": "select", "options": ["All", "Selangor", "Sabah", "Sarawak", "Johor", "Pahang"]}
+      }
+    },
+    "transform": [
+      {
+        "filter": "datum.state == state_filter || state_filter == 'All'"
+      }
+    ]
+  }
+  

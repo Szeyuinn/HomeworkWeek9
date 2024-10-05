@@ -4,77 +4,69 @@
     "width": 800,
     "height": 400,
     "data": {
-      "url": "https://raw.githubusercontent.com/Szeyuinn/HomeworkWeek9/refs/heads/main/data/forest_reserve_state_cleaned_stacked.csv"
+        "url": "https://raw.githubusercontent.com/Szeyuinn/HomeworkWeek9/refs/heads/main/data/forest_reserve_state_cleaned_stacked.csv"
     },
     "transform": [
-      {
-        "filter": "datum.date >= 2003 && datum.date <= 2021"
-      }
-    ],
-    "layer": [
-      {
-        "mark": {
-          "type": "area",
-          "line": true,
-          "point": true
+        {
+            "filter": "datum.date >= 2003 && datum.date <= 2021"
         },
-        "encoding": {
-          "x": {
+        {
+            "aggregate": [
+                {
+                    "op": "sum",
+                    "field": "area",
+                    "as": "total_area"
+                }
+            ],
+            "groupby": ["date", "state"]
+        }
+    ],
+    "mark": {
+        "type": "area",
+        "line": true,
+        "point": true
+    },
+    "encoding": {
+        "x": {
             "field": "date",
             "type": "temporal",
             "title": "Year",
-            "axis": {"grid": false}
-          },
-          "y": {
-            "aggregate": "sum",
-            "field": "area",
+            "axis": {
+                "grid": false
+            }
+        },
+        "y": {
+            "field": "total_area",
             "type": "quantitative",
             "title": "Forest Reserve Area (Hectares)"
-          },
-          "color": {
+        },
+        "color": {
             "field": "state",
             "type": "nominal",
             "title": "State",
-            "scale": {"scheme": "category20b"}
-          },
-          "tooltip": [
+            "scale": {
+                "scheme": "category20b"
+            }
+        },
+        "tooltip": [
             {"field": "state", "type": "nominal", "title": "State"},
             {"field": "date", "type": "temporal", "title": "Year"},
-            {"field": "area", "type": "quantitative", "title": "Forest Area (Hectares)"}
-          ]
-        }
-      },
-      {
-        "mark": {
-          "type": "text",
-          "align": "left",
-          "dx": 5,
-          "dy": -5,
-          "color": "black"
-        },
-        "encoding": {
-          "x": {"field": "date", "type": "temporal"},
-          "y": {
-            "aggregate": "sum",
-            "field": "area",
-            "type": "quantitative"
-          },
-          "text": {"field": "area", "type": "quantitative", "format": ".1f"},
-          "color": {"value": "black"}
-        }
-      }
-    ],
+            {"field": "total_area", "type": "quantitative", "title": "Forest Area (Hectares)"}
+        ]
+    },
     "selection": {
-      "state_filter": {
-        "type": "multi",
-        "fields": ["state"],
-        "bind": {"input": "select", "options": ["All", "Selangor", "Sabah", "Sarawak", "Johor", "Pahang"]}
-      }
+        "state_filter": {
+            "type": "multi",
+            "fields": ["state"],
+            "bind": {
+                "input": "select",
+                "options": ["All", "Selangor", "Sabah", "Sarawak", "Johor", "Pahang"]
+            }
+        }
     },
     "transform": [
-      {
-        "filter": "datum.state == state_filter || state_filter == 'All'"
-      }
+        {
+            "filter": "datum.state == state_filter || state_filter == 'All'"
+        }
     ]
-  }
-  
+}

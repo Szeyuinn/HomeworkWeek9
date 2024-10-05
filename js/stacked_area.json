@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "description": "Stacked area chart of forest reserves by state in Malaysia over time.",
+    "title": "Stacked area chart of forest reserves by state in Malaysia over time.",
     "width": 800,
     "height": 400,
     "data": {
@@ -43,41 +43,27 @@
         {"field": "area", "type": "quantitative", "title": "Forest Area (Hectares)"}
       ]
     }},
+    { 
+    "mark": {
+        "type": "rule",
+        "color": "red", 
+        "size": 2
+    },  
+    "encoding": {
+        "y": {"datum": 15000000, "type": "quantitative"}
+    }}, 
     {
-        "mark": {
-            "type": "rule",
-            "color": "red",
-            "size": 2
-        },
-        "encoding": {
-            "x": {
-                "type": "temporal",
-                "datum": "2012"
-            }
-        }
+    "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": -110, "dy": -15,
+        "color": "red"
     },
-    {
-        "mark": {
-            "type": "text",
-            "align": "left",
-            "dx": 5,
-            "dy": -10,
-            "color": "red"
-        },
-        "encoding": {
-            "x": {
-                "type": "temporal",
-                "datum": "2012"
-            },
-            "y": {
-                "aggregate": "max",
-                "field": "area",
-                "type": "quantitative"
-            },
-            "text": {
-            "value": "Forest increases this year"
-            }
-        }
+    "encoding": {
+        "y": {"datum": 15000000, "type": "quantitative"},  
+        "text": {"value": "15 Million Hectares"}
+    }
     }],
     "params": [
       {

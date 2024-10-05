@@ -1,8 +1,12 @@
 #choropleth_map {
-	top:100px;
+	top:10px;
 	bottom: 100px; 
 	left: 100px;
 	right: 100px;
-	/*height: 1000px;
-	width: 800px;*/
+}
+#stacked_area {
+	top:50px;
+	bottom: 500px; 
+	left: 100px;
+	right: 100px;
 }

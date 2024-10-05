@@ -16,8 +16,7 @@
         "mark": {
           "type": "area",
           "line": true,
-          "point": true,
-          "tooltip": true
+          "point": true
         },
         "encoding": {
           "x": {
@@ -54,7 +53,7 @@
           "color": "black"
         },
         "encoding": {
-          "x": {"field": "year", "type": "temporal"},
+          "x": {"field": "date", "type": "temporal"},
           "y": {
             "aggregate": "sum",
             "field": "area",

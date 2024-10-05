@@ -8,7 +8,7 @@
     },
     "transform": [
       {
-        "filter": "datum.year >= 2003 && datum.year <= 2021"
+        "filter": "datum.date >= 2003-01-01 && datum.year <= 2021-01-01"
       }
     ],
     "layer": [

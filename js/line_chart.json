@@ -4,7 +4,7 @@
     "width": 800,
     "height": 400,
     "data": {
-      "url": "forest_reserve_with_rate.csv"
+      "url": "https://raw.githubusercontent.com/Szeyuinn/HomeworkWeek9/refs/heads/main/data/forest_reserve_state_rate.csv"
     },
     "mark": {
       "type": "line",

@@ -4,39 +4,95 @@
     "width": 800,
     "height": 400,
     "data": {
-        "url": "https://raw.githubusercontent.com/Szeyuinn/HomeworkWeek9/refs/heads/main/data/forest_reserve_state_cleaned_stacked.csv" 
+      "url": "https://raw.githubusercontent.com/Szeyuinn/HomeworkWeek9/refs/heads/main/data/forest_reserve_state_cleaned_stacked.csv"
     },
-    "mark": {
-        "type": "area",
-        "line": true,
-        "point": true
+    "layer": [{
+      "mark": {
+      "type": "area",
+      "line": true,
+      "point": true
     },
     "encoding": {
-        "x": {
-            "field": "date",
-            "type": "temporal",
-            "title": "Year",
-            "axis": {
-                "grid": false
+      "x": {
+        "field": "date",
+        "type": "temporal",
+        "title": "Year",
+        "axis": {
+          "grid": false
+        }
+      },
+      "y": {
+        "field": "area",
+        "type": "quantitative",
+        "title": "Forest Reserve Area (Hectares)",
+        "scale": {
+          "domain": [0, 20000000]  
+        }
+      },
+      "color": {
+        "field": "state",
+        "type": "nominal",
+        "title": "State",
+        "scale": {
+          "scheme": "category20b"
+        }
+      },
+      "tooltip": [
+        {"field": "state", "type": "nominal", "title": "State"},
+        {"field": "date", "type": "temporal", "title": "Year"},
+        {"field": "area", "type": "quantitative", "title": "Forest Area (Hectares)"}
+      ]
+    }},
+    {
+        "mark": {
+            "type": "rule",
+            "color": "red",
+            "size": 2
+        },
+        "encoding": {
+            "x": {
+                "type": "temporal",
+                "datum": "2012"
             }
+        }
+    },
+    {
+        "mark": {
+            "type": "text",
+            "align": "left",
+            "dx": 5,
+            "dy": -10,
+            "color": "red"
         },
-        "y": {
-            "field": "area",
-            "type": "quantitative",
-            "title": "Forest Reserve Area (Hectares)"
-        },
-        "color": {
-            "field": "state",
-            "type": "nominal",
-            "title": "State",
-            "scale": {
-                "scheme": "category20b"
+        "encoding": {
+            "x": {
+                "type": "temporal",
+                "datum": "2012"
+            },
+            "y": {
+                "aggregate": "max",
+                "field": "area",
+                "type": "quantitative"
+            },
+            "text": {
+            "value": "Forest increases this year"
             }
-        },
-        "tooltip": [
-            {"field": "state", "type": "nominal", "title": "State"},
-            {"field": "date", "type": "temporal", "title": "Year"},
-            {"field": "area", "type": "quantitative", "title": "Forest Area (Hectares)"}
-        ]
-    }
-}
+        }
+    }],
+    "params": [
+      {
+        "name": "state",
+        "value": "All", 
+        "bind": {
+          "input": "select",
+          "options": ["All", "Johor", "Kedah", "Kelantan", "Melaka", "Negeri Sembilan" , "Pahang" , "Perak" , "Perlis" , "Pulau Pinang" , "Sabah" , "Sarawak" , "Selangor" , "Semenanjung Malaysia" , "Terengganu" , "Kuala Lumpur" , "Labuan" , "Putrajaya"],
+          "name": "State"
+        }
+      }
+    ],
+    "transform": [
+      {
+        "filter": "state == 'All' || datum.state == state"
+      }
+    ]
+  }

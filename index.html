@@ -20,6 +20,8 @@
     <!-- Stacked Area Chart Container -->
     <div id="stacked_area"></div>
 
+    <!-- <div id="line_chart"></div> -->
+
     <script type="text/javascript">
     
       // var spec1 = "js/choropleth_map.json";
@@ -31,6 +33,11 @@
       vegaEmbed('#stacked_area', spec2).then(function(result) {
         // Access the Vega view instance for stacked area chart
       }).catch(console.error);
+
+      // var spec3 = "js/line_chart.json";
+      // vegaEmbed('#line_chart', spec3).then(function(result) {
+      //   // Access the Vega view instance for stacked area chart
+      // }).catch(console.error);
 
     </script>
     

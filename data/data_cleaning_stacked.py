@@ -20,7 +20,7 @@ latest_year_data['state'] = latest_year_data['state'].replace({
 latest_year_data_cleaned = latest_year_data.dropna(subset=['area'])
 
 # Save the cleaned dataset for 2021
-latest_year_data_path = '/Users/szeyuin/Documents/FIT3179/HomeworkWeek9/data/forest_reserve_state_2021_cleaned_stacked.csv'
+latest_year_data_path = '/Users/szeyuin/Documents/FIT3179/HomeworkWeek9/data/forest_reserve_state_cleaned_stacked.csv'
 latest_year_data_cleaned.to_csv(latest_year_data_path, index=False)
 
 print(f"Filtered and cleaned dataset (2021) saved at: {latest_year_data_path}")
